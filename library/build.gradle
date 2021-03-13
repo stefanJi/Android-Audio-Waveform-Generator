@@ -27,6 +27,7 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+        kotlinOptions.freeCompilerArgs += ['-module-name', "x.stefanji.audiowaveformgenerator"]
     }
     kotlinOptions {
         jvmTarget = '1.8'
@@ -50,7 +51,7 @@ afterEvaluate {
                 // You can then customize attributes of the publication as shown below.
                 groupId = 'x.stefanji'
                 artifactId = 'audiowavegenerator'
-                version = '1.0.1'
+                version = '1.0.2'
             }
         }
     }

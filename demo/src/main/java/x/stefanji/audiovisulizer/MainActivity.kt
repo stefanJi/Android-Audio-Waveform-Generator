@@ -44,11 +44,8 @@ class MainActivity : AppCompatActivity() {
                         decoder.startDecode()
                         val samples = decoder.getSampleData()
                         Log.d(TAG, "onFinish ${samples.size}")
-                        lifecycleScope.launch {
-                            val values = samples.toList()
-                            withContext(Dispatchers.Main) {
-                                findViewById<Wave>(R.id.wave).setValues(values)
-                            }
+                        withContext(Dispatchers.Main) {
+                            findViewById<Wave>(R.id.wave).setValues(samples)
                         }
                     } catch (e: Exception) {
                         Log.e(TAG, "copy", e)
