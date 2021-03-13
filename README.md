@@ -1,8 +1,36 @@
+[![](https://jitpack.io/v/stefanJi/Android-Audio-Waveform-Generator.svg)](https://jitpack.io/#stefanJi/Android-Audio-Waveform-Generator)
+
+![](https://github.com/stefanJi/Android-Audio-Waveform-Generator/blob/master/images/final.png)
+
+# Usage
+
+## Add the dependency
+
+```
+implementation 'com.github.stefanJi:Android-Audio-Waveform-Generator:Tag'
+```
+
+## Code
+
+```kotlin
+val decoder = AudioWaveformGenerator(file.absolutePath, 100)
+decoder.startDecode()
+val samples = decoder.getSampleData()
+```
+
+See: `demo/src/main/java/x/stefanji/audiovisulizer/MainActivity.kt`
+
+## Support
+
+[MediaCodec supported audio formats](https://developer.android.com/guide/topics/media/media-formats#audio-codecs).
+
+---
+
 # 背景
 
 |期待效果|初步效果|
 |:---:|:---:|
-|![](images/audio_waveform.png)|![](images/final.png)|
+|![](https://github.com/stefanJi/Android-Audio-Waveform-Generator/blob/master/images/audio_waveform.png)|![](https://github.com/stefanJi/Android-Audio-Waveform-Generator/blob/master/images/final.png)|
 
 首先这样的波形图，是根据音频在采样点的采样值来绘制的。像 mp3 m4a 的音乐格式，都会经历音频采样、编码的过程。采样的结果是 PCM，对 PCM 利用不同的编码算法进行编码就产生了不同格式的音乐文件。
 
@@ -215,7 +243,7 @@ override fun onOutputBufferAvailable(
 
 可以在解码完成之后，将解码之后的数据存储为 Wav 格式，然后利用如下脚本绘制波形图，测试解码是否正常。
 
-![](images/python_output.png)
+![](https://github.com/stefanJi/Android-Audio-Waveform-Generator/blob/master/images/python_output.png)
 
 ```python
 import matplotlib.pyplot as pl
@@ -268,7 +296,7 @@ if __name__ == "__main__":
 
 |计算方法|结果|
 |:---:|:---:|
-|![](images/rms.png)|![](images/rms_value.jpg)|
+|![](https://github.com/stefanJi/Android-Audio-Waveform-Generator/blob/master/images/rms.png)|![](https://github.com/stefanJi/Android-Audio-Waveform-Generator/blob/master/images/rms_value.jpg)|
 
 每一个绘制点的数值范围为 [-RMS, RMS]。如下就是我实现的 RMS，我这是一个动态计算 RMS 的方法。
 
@@ -294,7 +322,7 @@ private fun calRMS(left: Float) {
 
 |最终效果|专业软件|
 |:---:|:---:|
-|![](images/final.png)|![](images/audio_pro.png)|
+|![](https://github.com/stefanJi/Android-Audio-Waveform-Generator/blob/master/images/final.png)|![](https://github.com/stefanJi/Android-Audio-Waveform-Generator/blob/master/images/audio_pro.png)|
 
 可以看到，和专业的音乐编辑软件的显示差不多。
 
